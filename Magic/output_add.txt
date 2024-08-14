@@ -1,0 +1,5 @@
+tpd                 =  7.71122e-10for Input = A0 and Output = Add_SubS0
+tpd                 =  7.03680e-10for Input = A0 and Output = Add_SubS1
+tpd                 =  6.54591e-10for Input = A0 and Output = Add_SubS2
+tpd                 =  5.18363e-10for Input = A0 and Output = Add_SubS3
+tpd                 =  7.71122e-10for Input = A1 and Output = Add_SubS0

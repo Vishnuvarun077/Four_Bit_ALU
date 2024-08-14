@@ -1,0 +1,12 @@
+.include xor.sub
+.include fulladder.sub
+.subckt Adder_subtract A3 A2 A1 A0 B3 B2 B1 B0 Cin S3 S2 S1 S0 Cout Vdd Gnd
+xxor1 Cin B3 n3 Vdd Gnd xor
+xxor2 Cin B2 n2 Vdd Gnd xor
+xxor3 Cin B1 n1 Vdd Gnd xor
+xxor4 Cin B0 n0 Vdd Gnd xor
+xfulladder0 A0 n0 Cin S0 C0 Vdd Gnd fulladder
+xfulladder1 A1 n1 C0 S1 C1 Vdd Gnd fulladder
+xfulladder2 A2 n2 C1 S2 C2 Vdd Gnd fulladder
+xfulladder3 A3 n3 C2 S3 Cout Vdd Gnd fulladder
+.ends Adder_subtract

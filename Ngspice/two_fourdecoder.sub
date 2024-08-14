@@ -1,0 +1,10 @@
+.include and.sub
+.include not.sub
+.subckt two_fourdecoder A1 A0 D3 D2 D1 D0 Vdd Gnd
+xnot1 A1 n1 Vdd Gnd not
+xnot2 A0 n0 Vdd Gnd not
+xand1 n1 n0 D0 Vdd Gnd and
+xand2 n1 A0 D1 Vdd Gnd and
+xand3 n0 A1 D2 Vdd Gnd and
+xand4 A1 A0 D3 Vdd Gnd and
+.ends two_fourdecoder

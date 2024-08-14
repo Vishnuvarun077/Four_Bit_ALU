@@ -1,0 +1,23 @@
+magic
+tech scmos
+timestamp 1698512810
+<< metal1 >>
+rect 23 37 36 40
+rect 58 37 68 40
+rect 24 15 36 18
+rect 58 15 69 18
+rect 23 0 36 3
+rect 58 0 69 3
+use NOT  NOT_2
+timestamp 1698047077
+transform 1 0 76 0 1 20
+box -9 -20 16 20
+use NOT  NOT_1
+timestamp 1698047077
+transform 1 0 43 0 1 20
+box -9 -20 16 20
+use NOT  NOT_0
+timestamp 1698047077
+transform 1 0 9 0 1 20
+box -9 -20 16 20
+<< end >>

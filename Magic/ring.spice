@@ -1,0 +1,16 @@
+* SPICE3 file created from ring.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 NOT_1/in NOT_0/in VDD NOT_0/w_n9_1# CMOSP w=4 l=2
++  ad=20 pd=18 as=60 ps=54
+M1001 NOT_1/in NOT_0/in NOT_2/gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=60 ps=54
+M1002 NOT_2/in NOT_1/in VDD NOT_1/w_n9_1# CMOSP w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1003 NOT_2/in NOT_1/in NOT_2/gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1004 NOT_2/out NOT_2/in VDD NOT_2/w_n9_1# CMOSP w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1005 NOT_2/out NOT_2/in NOT_2/gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0

@@ -1,0 +1,73 @@
+* SPICE3 file created from and1.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+VDS vdd gnd 'SUPPLY'
+vin1 A gnd pulse 1.8 0 0ns 100ps 100ps 9.9ns 20ns
+vin2 B gnd pulse 1.8 0 0ns 100ps 100ps 19.9ns 40ns
+
+M1000 VDD B a_13_5# VDD CMOSP w=6 l=2
++  ad=96 pd=68 as=48 ps=28
+M1001 OUT a_13_5# GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=40 ps=36
+M1002 a_13_5# A VDD VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 OUT a_13_5# VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1004 a_13_5# B a_13_n25# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1005 a_13_n25# A GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+
+C0 VDD A 0.08fF
+C1 VDD OUT 0.03fF
+C2 a_13_5# VDD 0.09fF
+C3 VDD B 0.08fF
+C4 VDD a_13_5# 0.02fF
+C5 VDD a_13_5# 0.08fF
+C6 VDD VDD 0.06fF
+C7 VDD VDD 0.03fF
+C8 OUT GND 0.06fF
+C9 A B 0.23fF
+C10 B GND 0.03fF
+C11 a_13_5# OUT 0.05fF
+C12 A a_13_5# 0.04fF
+C13 VDD OUT 0.06fF
+C14 a_13_5# GND 0.02fF
+C15 B a_13_5# 0.17fF
+C16 GND Gnd 0.26fF
+C17 OUT Gnd 0.11fF
+C18 VDD Gnd 0.28fF
+C19 a_13_5# Gnd 0.37fF
+C20 B Gnd 0.27fF
+C21 A Gnd 0.25fF
+C22 VDD Gnd 0.43fF
+C23 VDD Gnd 0.67fF
+
+.tran 0.05n 80n
+.measure tran trise
++ TRIG v(A) VAL = 'SUPPLY/2' RISE = 2 
++ TARG v(OUT) VAL = 'SUPPLY/2' RISE =1
+
+.measure tran tfall 
++ TRIG v(A) VAL = 'SUPPLY/2' FALL =3 
++ TARG v(OUT) VAL = 'SUPPLY/2' FALL=2
+
+.measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+
+
+set color0 = white
+set color1 = black
+set color2 = red
+set color3 = blue
+set color4 = green
+plot v(OUT)+4 v(A) v(B)+2
+
+
+.endc

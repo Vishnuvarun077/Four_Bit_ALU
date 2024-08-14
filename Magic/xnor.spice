@@ -1,0 +1,52 @@
+* SPICE3 file created from xnor.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global GND VDD
+
+VDS VDD GND 'SUPPLY'
+vin1 A GND pulse 0 1.8 0ns 100ps 100ps 10ns 20ns
+*  vin4 B GND DC 1.8
+vin2 B GND pulse 0 1.8 0ns 100ps 100ps 20ns 40ns
+* vin3 A GND DC 1.8
+
+.option scale=0.09u
+
+M1000 VDD A Anot w_n25_n4# CMOSP w=6 l=2
++  ad=140 pd=106 as=30 ps=22
+M1001 OUT xor GND GND CMOSN w=4 l=2
++  ad=20 pd=18 as=100 ps=90
+M1002 GND Anot a_24_n44# GND CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1003 xor Bnot a_4_2# w_n25_n4# CMOSP w=6 l=2
++  ad=48 pd=28 as=48 ps=28
+M1004 a_4_n44# A GND GND CMOSN w=4 l=2
++  ad=32 pd=24 as=0 ps=0
+M1005 a_24_n44# Bnot xor GND CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1006 OUT xor VDD VDD CMOSP w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1007 a_24_2# B xor w_n25_n4# CMOSP w=6 l=2
++  ad=48 pd=28 as=0 ps=0
+M1008 Bnot B GND GND CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1009 GND A Anot GND CMOSN w=4 l=2
++  ad=0 pd=0 as=20 ps=18
+M1010 a_4_2# A VDD w_n25_n4# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 VDD Anot a_24_2# w_n25_n4# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1012 xor B a_4_n44# GND CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1013 Bnot B VDD w_n25_n4# CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+
+.tran 0.05n 80n
+
+.control
+run
+plot v(OUT)+8   v(B)+4 v(A)
+
+* quit
+.endc
+.end

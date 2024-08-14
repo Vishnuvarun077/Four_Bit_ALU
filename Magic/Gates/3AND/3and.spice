@@ -1,0 +1,70 @@
+* SPICE3 file created from 3and.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+VDS vdd gnd 'SUPPLY'
+vin1 A gnd pulse 1.8 0 0ns 100ps 100ps 9.9ns 20ns
+vin2 B gnd pulse 1.8 0 0ns 100ps 100ps 19.9ns 40ns
+vin3 C gnd pulse 1.8 0 0ns 100ps 100ps 39.9ns 80ns
+
+M1000 3NAND C VDD VDD CMOSP w=6 l=2
++  ad=84 pd=52 as=108 ps=72
+M1001 a_13_n28# A GND Gnd CMOSN w=4 l=2
++  ad=32 pd=24 as=40 ps=36
+M1002 OUT 3NAND GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1003 VDD B 3NAND VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1004 OUT 3NAND VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1005 3NAND A VDD VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 3NAND C a_23_n28# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1007 a_23_n28# B a_13_n28# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 VDD B 0.08fF
+C1 A 3NAND 0.04fF
+C2 3NAND B 0.16fF
+C3 VDD VDD 0.05fF
+C4 3NAND VDD 0.13fF
+C5 A C 0.08fF
+C6 VDD 3NAND 0.05fF
+C7 OUT VDD 0.06fF
+C8 C B 0.46fF
+C9 OUT 3NAND 0.05fF
+C10 3NAND GND 0.02fF
+C11 A B 0.32fF
+C12 OUT GND 0.06fF
+C13 VDD VDD 0.03fF
+C14 VDD C 0.08fF
+C15 VDD 3NAND 0.08fF
+C16 3NAND C 0.12fF
+C17 VDD OUT 0.03fF
+C18 GND C 0.05fF
+C19 A VDD 0.08fF
+C20 GND Gnd 0.32fF
+C21 OUT Gnd 0.12fF
+C22 VDD Gnd 0.34fF
+C23 3NAND Gnd 0.43fF
+C24 C Gnd 0.32fF
+C25 B Gnd 0.29fF
+C26 A Gnd 0.27fF
+C27 VDD Gnd 0.43fF
+C28 VDD Gnd 0.83fF
+
+.tran 0.05n 80n
+
+.control
+run
+
+set color0 = white
+set color1 = black
+
+plot v(OUT) v(A)+2 v(B)+4 v(C)+6
+
+
+.endc

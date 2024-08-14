@@ -1,0 +1,25 @@
+* SPICE3 file created from NOT.ext - technology: scmos
+.option scale=1u
+
+M1000 out in VDD w_n9_1# pfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1001 out in gnd Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+C0 w_n9_1# in 2.62fF
+C1 gnd Gnd 2.73fF
+C2 out Gnd 2.40fF
+C3 VDD Gnd 2.16fF
+C4 in Gnd 6.49fF
+
+
+* Add a voltage source to the input
+V1 in 0 PULSE(0 5 0 1n 1n 10n 20n)
+
+* Perform a transient analysis
+.tran 0.01n 40n
+
+* Measure the delay
+.measure tran tpd trig v(in) val='2.5' rise=1 targ v(out) val='2.5' fall=1
+
+.end
+

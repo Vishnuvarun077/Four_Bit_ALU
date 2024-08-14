@@ -1,0 +1,4 @@
+tpd                 =  1.02767e-10 Fixed input = A, Changing input = B, output = OUT
+tpd                 =  1.02767e-10 Fixed input = A, Changing input = B, output = OUT
+tpd                 =  1.02767e-10 Fixed input = B, Changing input = A, output = OUT
+tpd                 =  1.02767e-10 Fixed input = B, Changing input = A, output = OUT

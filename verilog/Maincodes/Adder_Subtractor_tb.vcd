@@ -1,0 +1,254 @@
+$date
+	Thu Oct 26 23:06:17 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Adder_Subtractor_tb $end
+$var wire 1 ! cout $end
+$var wire 4 " S [3:0] $end
+$var reg 4 # A [3:0] $end
+$var reg 4 $ B [3:0] $end
+$var reg 1 % M $end
+$scope module UUT $end
+$var wire 4 & A [3:0] $end
+$var wire 4 ' B [3:0] $end
+$var wire 1 % M $end
+$var wire 1 ( W0 $end
+$var wire 1 ) W1 $end
+$var wire 1 * W2 $end
+$var wire 1 + W3 $end
+$var wire 1 ! cout $end
+$var wire 4 , S [3:0] $end
+$var wire 1 - C2 $end
+$var wire 1 . C1 $end
+$var wire 1 / C0 $end
+$scope module fulladderblock1 $end
+$var wire 1 ( A $end
+$var wire 1 0 B $end
+$var wire 1 % Cin $end
+$var wire 1 / Cout $end
+$var wire 1 1 D0 $end
+$var wire 1 2 D1 $end
+$var wire 1 3 D2 $end
+$var wire 1 4 S $end
+$upscope $end
+$scope module fulladderblock2 $end
+$var wire 1 ) A $end
+$var wire 1 5 B $end
+$var wire 1 / Cin $end
+$var wire 1 . Cout $end
+$var wire 1 6 D0 $end
+$var wire 1 7 D1 $end
+$var wire 1 8 D2 $end
+$var wire 1 9 S $end
+$upscope $end
+$scope module fulladderblock3 $end
+$var wire 1 * A $end
+$var wire 1 : B $end
+$var wire 1 . Cin $end
+$var wire 1 - Cout $end
+$var wire 1 ; D0 $end
+$var wire 1 < D1 $end
+$var wire 1 = D2 $end
+$var wire 1 > S $end
+$upscope $end
+$scope module fulladderblock4 $end
+$var wire 1 + A $end
+$var wire 1 ? B $end
+$var wire 1 - Cin $end
+$var wire 1 ! Cout $end
+$var wire 1 @ D0 $end
+$var wire 1 A D1 $end
+$var wire 1 B D2 $end
+$var wire 1 C S $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1C
+0B
+0A
+1@
+1?
+1>
+0=
+0<
+0;
+0:
+09
+08
+17
+06
+15
+14
+03
+02
+11
+00
+0/
+1.
+0-
+b1101 ,
+0+
+0*
+1)
+1(
+b11 '
+b1010 &
+0%
+b11 $
+b1010 #
+b1101 "
+0!
+$end
+#60
+1;
+19
+0.
+b1111 "
+b1111 ,
+1C
+1*
+1+
+16
+07
+1@
+05
+0?
+b1111 $
+b1111 '
+b0 #
+b0 &
+#150
+04
+0B
+01
+1>
+0-
+b1110 "
+b1110 ,
+1C
+0!
+0(
+0*
+0+
+1;
+0<
+1@
+0A
+1:
+1?
+b10 $
+b10 '
+b1100 #
+b1100 &
+#280
+1/
+1-
+1C
+1!
+12
+0;
+1<
+0@
+1A
+04
+b1110 "
+b1110 ,
+19
+1.
+1(
+1*
+1+
+01
+06
+17
+10
+15
+b1111 $
+b1111 '
+b1111 #
+b1111 &
+#450
+1>
+0=
+1;
+0/
+19
+08
+0.
+0-
+0C
+0B
+1!
+02
+16
+07
+0<
+0@
+1A
+00
+0:
+0(
+0)
+1*
+1+
+b111 "
+b111 ,
+14
+b11 $
+b11 '
+b1010 #
+b1010 &
+1%
+#660
+0>
+0;
+09
+b1 "
+b1 ,
+0C
+0!
+0*
+0+
+06
+0@
+0A
+05
+0?
+b1111 $
+b1111 '
+b0 #
+b0 &
+#910
+19
+1/
+04
+13
+1-
+1!
+11
+1<
+1A
+0>
+b1010 "
+b1010 ,
+1C
+1(
+1*
+1+
+0;
+0@
+1:
+1?
+b10 $
+b10 '
+b1100 #
+b1100 &
+#1200

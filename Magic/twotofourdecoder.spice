@@ -1,0 +1,174 @@
+.include TSMC_180nm.txt
+.option scale=0.09u
+.param SUPPLY = 1V
+
+Vds VDD GND 'SUPPLY'
+V_in_a3 S0 GND PULSE(0 1 0ns 100ps 100ps 20ns 40ns)
+V_in_a2 S1 GND PULSE(0 1 0ns 100ps 100ps 30ns 50ns)
+
+M1000 D2 a_27_n220# VDD w_57_n226# CMOSP w=6 l=2
++  ad=30 pd=22 as=424 ps=308
+M1001 a_27_n220# S1 a_27_n250# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1002 a_27_n131# S0 VDD w_14_n137# CMOSP w=6 l=2
++  ad=48 pd=28 as=0 ps=0
+M1003 VDD S1 a_27_n303# w_14_n309# CMOSP w=6 l=2
++  ad=0 pd=0 as=48 ps=28
+M1004 a_26_n46# S0not VDD w_13_n52# CMOSP w=6 l=2
++  ad=48 pd=28 as=0 ps=0
+M1005 D1 a_27_n131# VDD w_57_n137# CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1006 D0 a_26_n46# VDD w_56_n52# CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1007 a_27_n131# S1not a_27_n161# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1008 a_26_n46# S1not a_26_n76# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1009 a_27_n250# S0not GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=200 ps=180
+M1010 a_27_n303# S0 VDD w_14_n309# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 D2 a_27_n220# GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1012 D3 a_27_n303# VDD w_57_n309# CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1013 S1not S1 GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1014 a_27_n161# S0 GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 a_27_n303# S1 a_27_n333# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1016 S1not S1 VDD w_106_25# CMOSP w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1017 a_26_n76# S0not GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1018 D1 a_27_n131# GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1019 D0 a_26_n46# GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1020 VDD S1 a_27_n220# w_14_n226# CMOSP w=6 l=2
++  ad=0 pd=0 as=48 ps=28
+M1021 a_27_n333# S0 GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1022 S0not S0 GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1023 VDD S1not a_27_n131# w_14_n137# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1024 S0not S0 VDD w_50_25# CMOSP w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1025 D3 a_27_n303# GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1026 a_27_n220# S0not VDD w_14_n226# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1027 VDD S1not a_26_n46# w_13_n52# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 w_57_n309# VDD 0.03fF
+C1 S1 w_14_n309# 0.08fF
+C2 w_14_n137# a_27_n131# 0.02fF
+C3 S0not w_50_25# 0.03fF
+C4 w_57_n226# D2 0.03fF
+C5 w_14_n309# S0 0.08fF
+C6 a_27_n303# VDD 0.09fF
+C7 a_26_n46# w_56_n52# 0.08fF
+C8 D0 w_56_n52# 0.03fF
+C9 D2 GND 0.06fF
+C10 a_27_n131# S0 0.04fF
+C11 w_56_n52# VDD 0.03fF
+C12 w_57_n226# a_27_n220# 0.08fF
+C13 w_14_n309# VDD 0.06fF
+C14 w_14_n226# a_27_n220# 0.02fF
+C15 a_27_n131# S1not 0.17fF
+C16 D3 VDD 0.06fF
+C17 w_14_n226# S1 0.08fF
+C18 D1 VDD 0.06fF
+C19 a_27_n220# GND 0.02fF
+C20 S1 GND 0.14fF
+C21 a_27_n131# VDD 0.09fF
+C22 GND S0 0.01fF
+C23 w_106_25# S1 0.06fF
+C24 w_57_n226# VDD 0.03fF
+C25 a_27_n220# D2 0.05fF
+C26 S1not GND 0.22fF
+C27 w_14_n226# VDD 0.06fF
+C28 GND a_26_n46# 0.02fF
+C29 D0 GND 0.06fF
+C30 w_106_25# S1not 0.03fF
+C31 a_27_n303# w_57_n309# 0.08fF
+C32 w_14_n137# S0 0.08fF
+C33 w_57_n137# D1 0.03fF
+C34 a_27_n131# w_57_n137# 0.08fF
+C35 w_14_n137# S1not 0.08fF
+C36 GND VDD 0.34fF
+C37 w_106_25# VDD 0.05fF
+C38 S1 a_27_n220# 0.17fF
+C39 w_14_n226# S0not 0.08fF
+C40 w_13_n52# S1not 0.08fF
+C41 w_13_n52# a_26_n46# 0.02fF
+C42 D2 VDD 0.06fF
+C43 S1 S0 0.63fF
+C44 D3 w_57_n309# 0.03fF
+C45 w_14_n137# VDD 0.06fF
+C46 a_27_n303# w_14_n309# 0.02fF
+C47 S1not S1 0.02fF
+C48 S1not S0 0.41fF
+C49 D3 a_27_n303# 0.05fF
+C50 GND S0not 0.15fF
+C51 w_13_n52# VDD 0.06fF
+C52 S1not a_26_n46# 0.17fF
+C53 a_27_n220# VDD 0.09fF
+C54 D0 a_26_n46# 0.05fF
+C55 S1not VDD 0.07fF
+C56 D0 VDD 0.06fF
+C57 a_26_n46# VDD 0.09fF
+C58 w_13_n52# S0not 0.08fF
+C59 a_27_n220# S0not 0.04fF
+C60 S1 S0not 0.84fF
+C61 S0not S0 0.21fF
+C62 a_27_n303# GND 0.02fF
+C63 S1not S0not 0.40fF
+C64 S0not a_26_n46# 0.04fF
+C65 S0 w_50_25# 0.06fF
+C66 a_27_n131# D1 0.05fF
+C67 S0not VDD 0.07fF
+C68 w_57_n137# VDD 0.03fF
+C69 D3 GND 0.06fF
+C70 w_50_25# VDD 0.05fF
+C71 GND D1 0.06fF
+C72 a_27_n303# S1 0.17fF
+C73 a_27_n303# S0 0.04fF
+C74 a_27_n131# GND 0.02fF
+C75 D2 Gnd 0.11fF
+C76 a_27_n220# Gnd 0.01fF
+C77 a_27_n131# Gnd 0.02fF
+C78 a_26_n46# Gnd 0.37fF
+C79 GND Gnd 0.20fF
+C80 S1not Gnd 0.25fF
+C81 S0not Gnd 0.22fF
+C82 VDD Gnd 6.04fF
+C83 S1 Gnd 0.27fF
+C84 S0 Gnd 0.25fF
+C85 w_57_n309# Gnd 0.00fF
+C86 w_14_n309# Gnd 0.67fF
+C87 w_57_n226# Gnd 0.00fF
+C88 w_14_n226# Gnd 0.67fF
+C89 w_57_n137# Gnd 0.00fF
+C90 w_14_n137# Gnd 0.67fF
+C91 w_56_n52# Gnd 0.43fF
+C92 w_13_n52# Gnd 0.67fF
+C93 w_106_25# Gnd 0.40fF
+C94 w_50_25# Gnd 0.21fF
+
+
+
+
+
+.tran 0.05n 200n
+
+.control
+run
+set color0 = rgb:f/f/e
+set color1 = black
+plot V(S0) V(S1)+4  V(D0)+6 V(D1)+8 V(D2)+10  V(D3)+12
+hardcopy twotofourdecoder V(S0) V(S1)+4  V(D0)+6 V(D1)+8 V(D2)+10  V(D3)+12
+.endc
+.end

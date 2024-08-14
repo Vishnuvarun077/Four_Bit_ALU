@@ -1,0 +1,7 @@
+.include and.sub
+.subckt Andblock A3 A2 A1 A0 B3 B2 B1 B0 Y3 Y2 Y1 Y0 Vdd Gnd  
+xand0  A0 B0  Y0 Vdd Gnd and
+xand1  A1 B1  Y1 Vdd Gnd and
+xand2  A2 B2  Y2 Vdd Gnd and
+xand3  A3 B3  Y3 Vdd Gnd and
+.ends Andblock

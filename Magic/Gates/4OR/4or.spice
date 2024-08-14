@@ -1,0 +1,77 @@
+* SPICE3 file created from 4or.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+VDS vdd gnd 'SUPPLY'
+vin1 A gnd pulse 1.8 0 0ns 100ps 100ps 9.9ns 20ns
+vin2 B gnd pulse 1.8 0 0ns 100ps 100ps 19.9ns 40ns
+vin3 C gnd pulse 1.8 0 0ns 100ps 100ps 39.9ns 80ns
+vin4 D gnd pulse 1.8 0 0ns 100ps 100ps 79.9ns 160ns
+
+M1000 4NOR C GND Gnd CMOSN w=4 l=2
++  ad=64 pd=48 as=92 ps=78
+M1001 4NOR A GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1002 OUT 4NOR GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1003 a_19_13# C a_10_13# VDD CMOSP w=6 l=2
++  ad=48 pd=28 as=42 ps=26
+M1004 GND B 4NOR Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 OUT 4NOR VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=60 ps=44
+M1006 a_0_13# A VDD VDD CMOSP w=6 l=2
++  ad=48 pd=28 as=0 ps=0
+M1007 4NOR D a_19_13# VDD CMOSP w=6 l=2
++  ad=36 pd=24 as=0 ps=0
+M1008 a_10_13# B a_0_13# VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 GND D 4NOR Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 C 4NOR 0.08fF
+C1 B D 0.08fF
+C2 VDD D 0.06fF
+C3 B A 0.31fF
+C4 VDD A 0.06fF
+C5 A D 0.08fF
+C6 OUT VDD 0.06fF
+C7 OUT VDD 0.03fF
+C8 B C 0.60fF
+C9 VDD C 0.06fF
+C10 C D 0.58fF
+C11 A C 0.08fF
+C12 GND OUT 0.06fF
+C13 VDD 4NOR 0.04fF
+C14 B 4NOR 0.08fF
+C15 VDD 4NOR 0.09fF
+C16 D 4NOR 0.38fF
+C17 GND 4NOR 0.25fF
+C18 OUT 4NOR 0.05fF
+C19 VDD VDD 0.06fF
+C20 B VDD 0.06fF
+C21 GND Gnd 0.37fF
+C22 OUT Gnd 0.19fF
+C23 VDD Gnd 0.29fF
+C24 4NOR Gnd 0.54fF
+C25 D Gnd 0.42fF
+C26 C Gnd 0.38fF
+C27 B Gnd 0.37fF
+C28 A Gnd 0.34fF
+C29 VDD Gnd 1.39fF
+
+
+.tran 0.05n 160n
+
+.control
+run
+
+set color0 = white
+set color1 = black
+
+plot v(OUT) v(A)+2 v(B)+4 v(C)+6 v(D)+8
+
+
+.endc

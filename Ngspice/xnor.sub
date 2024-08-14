@@ -1,0 +1,9 @@
+.include NAND.sub
+.include not.sub
+.subckt xnor A B Y Vdd Gnd
+X1 A B node_c Vdd Gnd NAND
+X2 A node_c node_d Vdd Gnd NAND
+X3 B node_c node_e Vdd Gnd NAND
+X4 node_e node_d node_out Vdd Gnd NAND
+X5 node_out Y Vdd Gnd not
+.ends xnor

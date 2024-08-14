@@ -1,0 +1,10 @@
+.include xor.sub
+.include and.sub
+.include or.sub
+.subckt fulladder A B Cin S Cout Vdd Gnd
+xxor1 A B n0 Vdd Gnd xor
+xxor2 n0 Cin S Vdd Gnd xor
+xand1 n0 cin n1 Vdd Gnd and
+xand2 A B n2 Vdd Gnd and
+xor1 n1 n2 Cout Vdd Gnd or
+.ends fulladder

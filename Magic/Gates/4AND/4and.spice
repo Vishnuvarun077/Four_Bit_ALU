@@ -1,0 +1,82 @@
+* SPICE3 file created from 4and.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+VDS vdd gnd 'SUPPLY'
+vin1 A gnd pulse 1.8 0 0ns 100ps 100ps 9.9ns 20ns
+vin2 B gnd pulse 1.8 0 0ns 100ps 100ps 19.9ns 40ns
+vin3 C gnd pulse 1.8 0 0ns 100ps 100ps 39.9ns 80ns
+vin4 D gnd pulse 1.8 0 0ns 100ps 100ps 79.9ns 160ns
+
+M1000 a_33_n36# C a_23_n36# Gnd CMOSN w=4 l=2
++  ad=32 pd=24 as=32 ps=24
+M1001 4NAND C VDD VDD CMOSP w=6 l=2
++  ad=96 pd=56 as=144 ps=96
+M1002 a_23_n36# B a_13_n36# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1003 a_13_n36# A GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=40 ps=36
+M1004 VDD B 4NAND VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 4NAND A VDD VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 OUT 4NAND VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1007 OUT 4NAND GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1008 VDD D 4NAND VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 4NAND D a_33_n36# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+C0 C VDD 0.08fF
+C1 OUT 4NAND 0.05fF
+C2 GND D 0.04fF
+C3 B VDD 0.08fF
+C4 VDD 4NAND 0.17fF
+C5 A VDD 0.08fF
+C6 4NAND D 0.12fF
+C7 4NAND C 0.08fF
+C8 D C 0.59fF
+C9 4NAND B 0.16fF
+C10 OUT VDD 0.03fF
+C11 4NAND A 0.04fF
+C12 D B 0.08fF
+C13 VDD VDD 0.03fF
+C14 VDD VDD 0.08fF
+C15 C B 0.46fF
+C16 D A 0.08fF
+C17 4NAND VDD 0.08fF
+C18 GND OUT 0.06fF
+C19 C A 0.08fF
+C20 4NAND VDD 0.05fF
+C21 D VDD 0.08fF
+C22 B A 0.32fF
+C23 OUT VDD 0.06fF
+C24 GND 4NAND 0.02fF
+C25 GND Gnd 0.35fF
+C26 OUT Gnd 0.14fF
+C27 VDD Gnd 0.39fF
+C28 4NAND Gnd 0.52fF
+C29 D Gnd 0.39fF
+C30 C Gnd 0.36fF
+C31 B Gnd 0.34fF
+C32 A Gnd 0.31fF
+C33 VDD Gnd 0.43fF
+C34 VDD Gnd 0.99fF
+
+
+.tran 0.05n 160n
+
+.control
+run
+
+set color0 = white
+set color1 = black
+
+plot v(OUT) v(A)+2 v(B)+4 v(C)+6 v(D)+8
+
+
+.endc

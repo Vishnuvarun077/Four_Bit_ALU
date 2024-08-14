@@ -1,0 +1,90 @@
+.include TSMC_180nm.txt
+.include Adder_subtract.sub
+.include comparator.sub
+.include enable.sub
+.include Andblock.sub
+.include two_fourdecoder.sub
+
+.param SUPPLY = 1
+.param LAMBDA = 0.09u
+
+.param wn1 = {10*LAMBDA}
+.param wn2 = {10*LAMBDA}
+.param wn3 = {10*LAMBDA}
+.param wn4 = {10*LAMBDA}
+.param wn5 = {10*LAMBDA}
+.param wn6 = {10*LAMBDA}
+.param ln1 = {2*LAMBDA}
+.param ln2 = {2*LAMBDA}
+.param ln3 = {2*LAMBDA}
+.param ln4 = {2*LAMBDA}
+.param ln5 = {2*LAMBDA}
+.param ln6 = {2*LAMBDA}
+.param wp1 = wn1
+.param wp2 = wn2
+.param wp3 = wn3
+.param wp4 = wn4
+.param wp5 = wn4
+.param wp6 = wn4
+.param lp1 = {LAMBDA}
+.param lp2 = {LAMBDA}
+.param lp3 = {LAMBDA}
+.param lp4 = {LAMBDA}
+.param lp5 = {LAMBDA}
+.param lp6 = {LAMBDA}
+.global vdd gnd
+Vdd vdd gnd 'SUPPLY'
+
+.param AGB ALB  AEB
+
+
+
+* Vina3_pulse a0 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 10ns 20ns)
+* Vina2_pulse a1 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 15ns 25ns)
+* Vina1_pulse a2 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 20ns 30ns)
+* Vina0_pulse a3 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 25ns 40ns)
+* Vinb3_pulse b0 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 15ns 30ns)
+* Vinb2_pulse b1 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 25ns 35ns)
+* Vinb1_pulse b2 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 35ns 50ns)
+* Vinb0_pulse b3 gnd PULSE (0 {SUPPLY} 0ns 100ps 100ps 40ns 60ns)
+Vina0_pulse a0 gnd DC 1V
+Vina1_pulse a1 gnd DC 1V
+Vina2_pulse a2 gnd DC 1V
+Vina3_pulse a3 gnd DC 1V
+Vinb0_pulse b0 gnd DC 1V
+Vinb1_pulse b1 gnd DC 1V
+Vinb2_pulse b2 gnd DC 1V
+Vinb3_pulse b3 gnd DC 1V
+Vins1 s1 gnd DC 1V
+Vins0 s0 gnd DC 1V
+xtwo_fourdecoder s1 s0 d3 d2 d1 d0 vdd gnd two_fourdecoder
+
+
+xenableadd d0 a3 a2 a1 a0 b3 b2 b1 b0 adda3 adda2 adda1 adda0 addb3 addb2 addb1 addb0 vdd gnd enable
+xenablesub d1 a3 a2 a1 a0 b3 b2 b1 b0 suba3 suba2 suba1 suba0 subb3 subb2 subb1 subb0 vdd gnd enable
+xenablecomp d2 a3 a2 a1 a0 b3 b2 b1 b0 compa3 compa2 compa1 compa0 compb3 compb2 compb1 compb0 vdd gnd enable
+xenableAnd d3 a3 a2 a1 a0 b3 b2 b1 b0 anda3 anda2 anda1 anda0 andb3 andb2 andb1 andb0 vdd gnd enable
+
+* V_inaddenable aen gnd DC 0V
+*  Operations
+xadd adda3 adda2 adda1 adda0 addb3 addb2 addb1 addb0 d1 addresult3 addresult2 addresult1 addresult0 addcout vdd gnd Adder_subtract
+xsub suba3 suba2 suba1 suba0 subb3 subb2 subb1 subb0 d1 subresult3 subresult2 subresult1 subresult0 subcout vdd gnd Adder_subtract
+xcomp compa3 compa2 compa1 compa0 compb3 compb2 compb1 compb0 AGB AEB ALB vdd gnd comparator
+xand anda3 anda2 anda1 anda0 andb3 andb2 andb1 andb0 andresult3 andresult2 andresult1 andresult0 vdd gnd Andblock
+
+
+.tran 1ns 800ns
+
+.control
+run
+set color0 = rgb:f/f/e
+set color1 = black
+* plot v(a3)+9 v(a2)+6 v(a1)+3  v(a0) (b0)+12 (b1)+15 (b2)+18 (b3)+21
+plot v(addresult3)+9 v(addresult2)+6 v(addresult1)+3 v(addresult0) v(addcout)+12
+plot v(subresult3)+9 v(subresult2)+6 v(subresult1)+3 v(subresult0) v(subcout)+12
+plot AGB+12 AEB+6 ALB
+plot v(andresult3)+9 v(andresult2)+6 v(andresult1)+3 v(andresult0) 
+* quit
+.end
+.endc
+

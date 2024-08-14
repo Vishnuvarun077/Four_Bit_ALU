@@ -1,0 +1,93 @@
+* SPICE3 file created from 5and.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+VDS vdd gnd 'SUPPLY'
+vin1 A gnd pulse 1.8 0 0ns 100ps 100ps 9.9ns 20ns
+vin2 B gnd pulse 1.8 0 0ns 100ps 100ps 19.9ns 40ns
+vin3 C gnd pulse 1.8 0 0ns 100ps 100ps 39.9ns 80ns
+vin4 D gnd pulse 1.8 0 0ns 100ps 100ps 79.9ns 160ns
+vin5 E gnd pulse 1.8 0 0ns 100ps 100ps 159.9ns 320ns
+
+M1000 OUT 5NAND VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=156 ps=100
+M1001 5NAND C VDD VDD CMOSP w=6 l=2
++  ad=132 pd=80 as=0 ps=0
+M1002 a_43_n43# D a_33_n43# Gnd CMOSN w=4 l=2
++  ad=32 pd=24 as=32 ps=24
+M1003 a_33_n43# C a_23_n43# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1004 VDD B 5NAND VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 a_23_n43# B a_13_n43# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1006 OUT 5NAND GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=40 ps=36
+M1007 a_13_n43# A GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1008 5NAND E VDD VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 5NAND A VDD VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1010 VDD D 5NAND VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 5NAND E a_43_n43# Gnd CMOSN w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+
+C0 D A 0.08fF
+C1 C B 0.46fF
+C2 GND 5NAND 0.02fF
+C3 OUT VDD 0.06fF
+C4 VDD OUT 0.03fF
+C5 C A 0.08fF
+C6 GND E 0.05fF
+C7 OUT 5NAND 0.05fF
+C8 VDD VDD 0.03fF
+C9 B A 0.32fF
+C10 VDD 5NAND 0.21fF
+C11 VDD 5NAND 0.08fF
+C12 VDD VDD 0.08fF
+C13 VDD 5NAND 0.08fF
+C14 5NAND E 0.12fF
+C15 VDD E 0.08fF
+C16 5NAND D 0.08fF
+C17 VDD D 0.08fF
+C18 5NAND C 0.08fF
+C19 E D 0.57fF
+C20 VDD C 0.08fF
+C21 E C 0.08fF
+C22 5NAND B 0.16fF
+C23 VDD B 0.08fF
+C24 D C 0.59fF
+C25 E B 0.08fF
+C26 5NAND A 0.04fF
+C27 VDD A 0.08fF
+C28 GND OUT 0.06fF
+C29 E A 0.08fF
+C30 D B 0.08fF
+C31 GND Gnd 0.37fF
+C32 VDD Gnd 0.42fF
+C33 5NAND Gnd 0.62fF
+C34 E Gnd 0.46fF
+C35 D Gnd 0.43fF
+C36 C Gnd 0.41fF
+C37 B Gnd 0.38fF
+C38 A Gnd 0.35fF
+C39 VDD Gnd 0.40fF
+C40 VDD Gnd 1.18fF
+
+.tran 0.05n 320n
+
+.control
+run
+
+set color0 = white
+set color1 = black
+
+plot v(OUT) v(A)+2 v(B)+4 v(C)+6 v(D)+8 v(E)+10
+
+
+.endc

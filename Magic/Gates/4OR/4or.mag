@@ -1,0 +1,105 @@
+magic
+tech scmos
+timestamp 1638568110
+<< nwell >>
+rect -13 7 64 25
+<< ntransistor >>
+rect -2 -37 0 -33
+rect 8 -37 10 -33
+rect 17 -37 19 -33
+rect 27 -37 29 -33
+rect 46 -37 48 -33
+<< ptransistor >>
+rect -2 13 0 19
+rect 8 13 10 19
+rect 17 13 19 19
+rect 27 13 29 19
+rect 46 13 48 19
+<< ndiffusion >>
+rect -3 -37 -2 -33
+rect 0 -37 2 -33
+rect 6 -37 8 -33
+rect 10 -37 11 -33
+rect 15 -37 17 -33
+rect 19 -37 21 -33
+rect 25 -37 27 -33
+rect 29 -37 31 -33
+rect 45 -37 46 -33
+rect 48 -37 49 -33
+<< pdiffusion >>
+rect -3 13 -2 19
+rect 0 13 8 19
+rect 10 13 17 19
+rect 19 13 27 19
+rect 29 13 31 19
+rect 45 13 46 19
+rect 48 13 49 19
+<< ndcontact >>
+rect -7 -37 -3 -33
+rect 2 -37 6 -33
+rect 11 -37 15 -33
+rect 21 -37 25 -33
+rect 31 -37 35 -33
+rect 41 -37 45 -33
+rect 49 -37 53 -33
+<< pdcontact >>
+rect -7 13 -3 19
+rect 31 13 35 19
+rect 41 13 45 19
+rect 49 13 53 19
+<< polysilicon >>
+rect -2 19 0 22
+rect 8 19 10 22
+rect 17 19 19 22
+rect 27 19 29 22
+rect 46 19 48 22
+rect -2 -33 0 13
+rect 8 -33 10 13
+rect 17 -10 19 13
+rect 18 -14 19 -10
+rect 17 -33 19 -14
+rect 27 -33 29 13
+rect 46 -33 48 13
+rect -2 -40 0 -37
+rect 8 -40 10 -37
+rect 17 -40 19 -37
+rect 27 -40 29 -37
+rect 46 -40 48 -37
+<< polycontact >>
+rect -6 0 -2 4
+rect 4 -7 8 -3
+rect 14 -14 18 -10
+rect 23 -21 27 -17
+rect 42 -5 46 -1
+<< metal1 >>
+rect -13 31 64 35
+rect -7 19 -3 31
+rect 41 19 45 31
+rect -17 0 -6 4
+rect 31 -1 35 13
+rect 49 -1 53 13
+rect -17 -7 4 -3
+rect 31 -5 42 -1
+rect 49 -5 69 -1
+rect -17 -14 14 -10
+rect -17 -21 23 -17
+rect 31 -25 35 -5
+rect 2 -29 35 -25
+rect 2 -33 6 -29
+rect 21 -33 25 -29
+rect 49 -33 53 -5
+rect -7 -44 -3 -37
+rect 11 -44 15 -37
+rect 31 -44 35 -37
+rect 41 -44 45 -37
+rect -14 -48 64 -44
+<< labels >>
+rlabel metal1 -17 -7 8 -3 1 B
+rlabel metal1 -17 0 -2 4 1 A
+rlabel metal1 -17 -14 18 -10 1 C
+rlabel metal1 49 -5 69 -1 1 OUT
+rlabel metal1 -13 31 64 35 5 VDD
+rlabel metal1 -14 -48 64 -44 1 GND
+rlabel metal1 31 -5 46 -1 1 4NOR
+rlabel metal1 -17 -21 27 -17 1 D
+<< end >>

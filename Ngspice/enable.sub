@@ -1,0 +1,11 @@
+.include and.sub
+.subckt enable E A3 A2 A1 A0 B3 B2 B1 B0 Aen3 Aen2 Aen1 Aen0 Ben3 Ben2 Ben1 Ben0 Vdd Gnd
+xand0 E A0 Aen0 Vdd Gnd and
+xand1 E A1 Aen1 Vdd Gnd and
+xand2 E A2 Aen2 Vdd Gnd and
+xand3 E A3 Aen3 Vdd Gnd and
+xand4 E B0 Ben0 Vdd Gnd and
+xand5 E B1 Ben1 Vdd Gnd and
+xand6 E B2 Ben2 Vdd Gnd and
+xand7 E B3 Ben3 Vdd Gnd and
+.ends enable

@@ -1,0 +1,81 @@
+* SPICE3 file created from xor1.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.option scale=0.09u
+.global gnd vdd
+
+VDS vdd gnd 'SUPPLY'
+vin1 A gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 20ns
+vin2 B gnd pulse 0 1.8 0ns 100ps 100ps 19.9ns 40ns
+
+M1000 a_24_2# B OUT VDD CMOSP w=6 l=2
++  ad=48 pd=28 as=48 ps=28
+M1001 VDD A Anot VDD CMOSP w=6 l=2
++  ad=120 pd=88 as=30 ps=22
+M1002 GND A Anot Gnd CMOSN w=4 l=2
++  ad=80 pd=72 as=20 ps=18
+M1003 OUT Bnot a_4_2# VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=48 ps=28
+M1004 Bnot B GND Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1005 GND Anot a_24_n44# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1006 a_4_2# A VDD VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1007 a_24_n44# Bnot OUT Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1008 VDD Anot a_24_2# VDD CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 OUT B a_4_n44# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1010 a_4_n44# A GND Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 Bnot B VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+C0 VDD A 0.13fF
+C1 B A 0.53fF
+C2 VDD Bnot 0.09fF
+C3 VDD OUT 0.02fF
+C4 B Bnot 0.08fF
+C5 VDD Anot 0.09fF
+C6 A Bnot 0.10fF
+C7 B Anot 0.10fF
+C8 VDD VDD 0.12fF
+C9 A Anot 0.17fF
+C10 B VDD 0.23fF
+C11 B GND 0.08fF
+C12 Bnot OUT 0.12fF
+C13 A GND 0.12fF
+C14 Bnot VDD 0.12fF
+C15 Bnot GND 0.08fF
+C16 Anot VDD 0.06fF
+C17 Anot GND 0.04fF
+C18 VDD B 0.14fF
+C19 GND Gnd 0.45fF
+C20 OUT Gnd 0.12fF
+C21 VDD Gnd 0.36fF
+C22 Anot Gnd 0.42fF
+C23 Bnot Gnd 0.50fF
+C24 A Gnd 0.96fF
+C25 B Gnd 1.63fF
+C26 VDD Gnd 1.63fF
+
+.tran 0.05n 80n
+.measure tran trise
++ TRIG v(A) VAL = 'SUPPLY/2' FALL = 1 
++ TARG v(OUT) VAL = 'SUPPLY/2' RISE = 1
+
+.measure tran tfall 
++ TRIG v(A) VAL = 'SUPPLY/2' FALL = 2 
++ TARG v(OUT) VAL = 'SUPPLY/2' FALL = 1
+
+.measure tran tpd param = '(trise + tfall)/2' goal = 0
+
+.control
+run
+
+* plot v(OUT)+8   v(B)+4 v(A)
+
+quit
+.endc

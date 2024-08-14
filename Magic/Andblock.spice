@@ -1,0 +1,77 @@
+* SPICE3 file created from Andblock.ext - technology: scmos
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8V
+.option scale=0.09u
+Vds VDD GND 'SUPPLY'
+
+
+V_in_a3 A3 GND PULSE(0 1.8 0ns 100ps 100ps 20ns 40ns)
+V_in_a2 A2 GND PULSE(0 1.8 0ns 100ps 100ps 30ns 50ns)
+V_in_a1 A1 GND PULSE(0 1.8 0ns 100ps 100ps 40ns 60ns)
+V_in_a0 A0 GND PULSE(0 1.8 0ns 100ps 100ps 50ns 80ns)
+
+ V_in_b3 B3 GND PULSE(0 1.8 0ns 100ps 100ps 10ns 50ns)
+ V_in_b2 B2 GND PULSE(0 1.8 0ns 100ps 100ps 20ns 60ns)
+V_in_b1 B1 GND PULSE(0 1.8 0ns 100ps 100ps 30ns 70ns)
+V_in_b0 B0 GND PULSE(0 1.8 0ns 100ps 100ps 40ns 80ns)
+
+
+M1000 Y1 Y1not VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=384 ps=272
+M1001 Y3not B3 a_290_124# GND CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1002 Y2 Y2not VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1003 Y3not A3 VDD w_277_148# CMOSP w=6 l=2
++  ad=48 pd=28 as=0 ps=0
+M1004 Y3 Y3not VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1005 Y0 Y0not GND GND CMOSN w=4 l=2
++  ad=20 pd=18 as=160 ps=144
+M1006 a_105_124# A1 GND GND CMOSN w=4 l=2
++  ad=32 pd=24 as=0 ps=0
+M1007 VDD B0 Y0not w_6_148# CMOSP w=6 l=2
++  ad=0 pd=0 as=48 ps=28
+M1008 Y1 Y1not GND GND CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1009 Y2not A2 VDD w_182_148# CMOSP w=6 l=2
++  ad=48 pd=28 as=0 ps=0
+M1010 a_290_124# A3 GND GND CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 Y2 Y2not GND GND CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1012 Y3 Y3not GND GND CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1013 Y0not B0 a_19_124# GND CMOSN w=4 l=2
++  ad=24 pd=20 as=32 ps=24
+M1014 a_195_124# A2 GND GND CMOSN w=4 l=2
++  ad=32 pd=24 as=0 ps=0
+M1015 Y0not A0 VDD w_6_148# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1016 VDD B1 Y1not w_92_148# CMOSP w=6 l=2
++  ad=0 pd=0 as=48 ps=28
+M1017 VDD B2 Y2not w_182_148# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1018 VDD B3 Y3not w_277_148# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1019 a_19_124# A0 GND GND CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1020 Y0 Y0not VDD VDD CMOSP w=6 l=2
++  ad=30 pd=22 as=0 ps=0
+M1021 Y1not B1 a_105_124# GND CMOSN w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+M1022 Y1not A1 VDD w_92_148# CMOSP w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1023 Y2not B2 a_195_124# GND CMOSN w=4 l=2
++  ad=24 pd=20 as=0 ps=0
+
+.tran 0.01n 200n
+
+.control
+run
+set color0 = rgb:f/f/e
+set color1 = black
+plot v(A0) v(A1)+3 v(A2)+6 v(A3)+9  v(B0)+12 v(B1)+15 v(B2)+18 v(B3)+21 v(Y0)+24 v(Y1)+27 v(Y2)+30 v(Y3)+33
+
+.endc
+.end

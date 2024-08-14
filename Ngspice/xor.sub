@@ -1,0 +1,26 @@
+
+
+.include NAND.sub
+.subckt xor node_a node_b node_out Vdd Gnd
+X1 node_a node_b node_c Vdd Gnd NAND
+X2 node_a node_c node_d Vdd Gnd NAND
+X3 node_b node_c node_e Vdd Gnd NAND
+X4 node_e node_d node_out Vdd Gnd NAND
+.ends xor
+* 2 Input XOR Gate
+
+* A XOR B = A.B' + A'.B
+
+* .include not.sub
+* .include and.sub
+* .include or.sub
+
+* .subckt xor output A B Vdd Gnd
+
+* xnot1 Anot A Vdd Gnd not
+* xnot2 Bnot B Vdd Gnd not
+* xand1 temp1 A Bnot Vdd Gnd and
+* xand2 temp2 Anot B Vdd Gnd and
+* xor1 output temp1 temp2 Vdd Gnd or
+
+* .ends xor

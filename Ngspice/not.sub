@@ -1,0 +1,6 @@
+.subckt not A Y Vdd Gnd
+   Mn1 Y A gnd gnd  CMOSN W = {wn1} L = {ln1}
+    + AS = {5*wn1*LAMBDA} PS = {10*LAMBDA + 2*wn1} AD = {5*wn1*LAMBDA} PD = {10*LAMBDA + 2*wn1}
+  Mp1 Y A vdd vdd CMOSP W = {wp1} L = {lp1}
+    + AS = {5*wp1*LAMBDA} PS = {10*LAMBDA + 2*wp1} AD = {5*wp1*LAMBDA} PD = {10*LAMBDA + 2*wp1}
+.ends not 

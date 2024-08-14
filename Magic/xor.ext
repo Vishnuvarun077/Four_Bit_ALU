@@ -1,0 +1,57 @@
+timestamp 1699212410
+version 8.3
+tech scmos
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 9
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "a_24_n44#" 13 0 24 -44 ndif 32 24 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_4_n44#" 13 0 4 -44 ndif 32 24 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "GND" 98 488.047 -19 -44 ndc 80 72 0 0 0 0 0 0 0 0 0 0 0 0 648 332 0 0 0 0 0 0 0 0 0 0
+node "a_24_2#" 10 0 24 2 pdif 0 0 48 28 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "XOR" 26 788.993 14 -44 ndif 32 24 48 28 0 0 0 0 0 0 0 0 0 0 274 152 274 144 0 0 0 0 0 0 0 0
+equiv "XOR" "xor"
+equiv "XOR" "XOR"
+node "a_4_2#" 10 0 4 2 pdif 0 0 48 28 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "VDD" 109 357.955 -19 2 pdc 0 0 120 88 0 0 0 0 0 0 0 0 0 0 664 340 0 0 0 0 0 0 0 0 0 0
+node "Anot" 242 421.441 32 -47 p 20 18 30 22 0 0 0 0 0 0 132 128 0 0 260 138 0 0 0 0 0 0 0 0 0 0
+node "Bnot" 281 499.146 -12 -44 ndif 20 18 30 22 0 0 0 0 0 0 152 148 0 0 284 150 0 0 0 0 0 0 0 0 0 0
+node "A" 684 1706.24 2 -57 p 0 0 0 0 0 0 0 0 0 0 378 370 0 0 170 100 435 184 0 0 0 0 0 0 0 0
+equiv "A" "A"
+node "B" 1175 1645.52 -18 -21 pc 0 0 0 0 0 0 0 0 0 0 626 622 0 0 76 46 0 0 0 0 0 0 0 0 0 0
+node "w_n25_n4#" 4645 1627.13 -25 -4 nw 0 0 0 0 1620 216 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "w_n25_n4#" "B" 142.81
+cap "B" "Anot" 100.745
+cap "B" "Bnot" 79.1568
+cap "w_n25_n4#" "Anot" 94.3956
+cap "XOR" "B" 5.48
+cap "VDD" "B" 229.716
+cap "w_n25_n4#" "Bnot" 94.3956
+cap "w_n25_n4#" "XOR" 23.6136
+cap "w_n25_n4#" "VDD" 118.502
+cap "XOR" "Anot" 90.9152
+cap "VDD" "Anot" 61.857
+cap "GND" "B" 76.572
+cap "XOR" "Bnot" 117.81
+cap "VDD" "Bnot" 123.714
+cap "GND" "Anot" 41.238
+cap "GND" "Bnot" 82.476
+cap "B" "A" 640.185
+cap "w_n25_n4#" "A" 129.54
+cap "Anot" "A" 282.866
+cap "Bnot" "A" 202.42
+cap "XOR" "A" 102.194
+cap "GND" "A" 117.81
+fet nfet 52 -44 53 -43 8 12 "Gnd!" "A" 4 0 "Anot" 4 0 "GND" 4 0
+fet nfet 32 -44 33 -43 8 12 "Gnd!" "Anot" 4 0 "a_24_n44#" 4 0 "GND" 4 0
+fet nfet 22 -44 23 -43 8 12 "Gnd!" "Bnot" 4 0 "XOR" 4 0 "a_24_n44#" 4 0
+fet nfet 12 -44 13 -43 8 12 "Gnd!" "B" 4 0 "a_4_n44#" 4 0 "XOR" 4 0
+fet nfet 2 -44 3 -43 8 12 "Gnd!" "A" 4 0 "GND" 4 0 "a_4_n44#" 4 0
+fet nfet -14 -44 -13 -43 8 12 "Gnd!" "B" 4 0 "GND" 4 0 "Bnot" 4 0
+fet pfet 52 2 53 3 12 16 "w_n25_n4#" "A" 4 0 "Anot" 6 0 "VDD" 6 0
+fet pfet 32 2 33 3 12 16 "w_n25_n4#" "Anot" 4 0 "a_24_2#" 6 0 "VDD" 6 0
+fet pfet 22 2 23 3 12 16 "w_n25_n4#" "B" 4 0 "XOR" 6 0 "a_24_2#" 6 0
+fet pfet 12 2 13 3 12 16 "w_n25_n4#" "Bnot" 4 0 "a_4_2#" 6 0 "XOR" 6 0
+fet pfet 2 2 3 3 12 16 "w_n25_n4#" "A" 4 0 "VDD" 6 0 "a_4_2#" 6 0
+fet pfet -14 2 -13 3 12 16 "w_n25_n4#" "B" 4 0 "VDD" 6 0 "Bnot" 6 0
+subcap "XOR" -208.431
+subcap "B" -406.07

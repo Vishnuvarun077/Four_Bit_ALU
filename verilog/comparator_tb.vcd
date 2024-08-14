@@ -1,0 +1,110 @@
+$date
+	Sat Sep 30 22:44:49 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! ALB $end
+$var wire 1 " AGB $end
+$var wire 1 # AEB $end
+$var reg 4 $ A [3:0] $end
+$var reg 4 % B [3:0] $end
+$var reg 1 & clk $end
+$scope module uut $end
+$var wire 4 ' A [3:0] $end
+$var wire 1 # AEB $end
+$var wire 1 " AGB $end
+$var wire 1 ! ALB $end
+$var wire 4 ( B [3:0] $end
+$var wire 1 ) D0 $end
+$var wire 1 * D1 $end
+$var wire 1 + D2 $end
+$var wire 1 , D3 $end
+$var wire 1 - D4 $end
+$var wire 1 . D5 $end
+$var wire 1 / D6 $end
+$var wire 1 0 D7 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+00
+0/
+0.
+1-
+0,
+1+
+0*
+0)
+b111 (
+b1010 '
+0&
+b111 %
+b1010 $
+0#
+1"
+0!
+$end
+#2
+1&
+#4
+0&
+#5
+1&
+#6
+0&
+#8
+1&
+#10
+0"
+0-
+1#
+1)
+1*
+1,
+1&
+b1001 %
+b1001 (
+b1001 $
+b1001 '
+#12
+0&
+#14
+1&
+#15
+0&
+#16
+1&
+#18
+0&
+#20
+1!
+0#
+0"
+0,
+0)
+0+
+0.
+0/
+0&
+b1100 %
+b1100 (
+b111 $
+b111 '
+#22
+1&
+#24
+0&
+#25
+1&
+#26
+0&
+#28
+1&
+#30
+1&
